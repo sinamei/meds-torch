@@ -43,6 +43,20 @@ export JOBLIB_RUNNER_CONFIG_PATH="$(pwd)/MIMICIV_INDUCTIVE_EXPERIMENTS/configs/j
 
 bash MIMICIV_INDUCTIVE_EXPERIMENTS/tokenize.sh $MIMICIV_MEDS_DIR $MIMICIV_TRIPLET_TENSOR_DIR $N_PARALLEL_WORKERS $PIPELINE_CONFIG_PATH stage_runner_fp=$JOBLIB_RUNNER_CONFIG_PATH
 ```
+Error Message: MIMICIV_INDUCTIVE_EXPERIMENTS/tokenize.sh: line 42: MEDS_transform-runner: command not found
+
+Problem: Incorrect command name in tokenize.sh script
+
+Solution:
+1. Install test dependencies (includes MEDS-transforms package):
+```console
+pip install -e .[tests]
+```
+
+2. Fix the command name in tokenize.sh:
+   - Change `MEDS_transform-runner` to `MEDS_transform-pipeline` on line 42
+   - The correct command installed by MEDS-transforms is `MEDS_transform-pipeline`
+
 
 Run the following end to end script to generate eic tensors
 
