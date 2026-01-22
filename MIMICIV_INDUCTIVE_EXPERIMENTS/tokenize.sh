@@ -39,4 +39,4 @@ export PIPELINE_CONFIG_PATH="$4"
 shift 4
 
 echo "Running extraction pipeline."
-MEDS_transform-pipeline "pipeline_config_fp=$PIPELINE_CONFIG_PATH" "$@"
+MEDS_transform-pipeline "$PIPELINE_CONFIG_PATH" "$@"
