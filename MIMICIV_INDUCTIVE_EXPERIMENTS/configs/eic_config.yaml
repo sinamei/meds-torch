@@ -3,6 +3,7 @@ defaults:
   - _self_
 input_dir: ${oc.env:MEDS_DIR}
 cohort_dir: ${oc.env:MODEL_DIR}
+output_dir: ${oc.env:MODEL_DIR}
 stages:
   - custom_time_token
   - count_codes

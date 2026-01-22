@@ -3,6 +3,7 @@ defaults:
   - _self_
 input_dir: ${oc.env:MEDS_DIR}
 cohort_dir: ${oc.env:MODEL_DIR}
+output_dir: ${oc.env:MODEL_DIR}
 stages:
   - fit_filter_and_occlude
   - filter_measurements
