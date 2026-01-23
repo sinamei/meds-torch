@@ -53,10 +53,13 @@ Solution:
 pip install -e .[tests]
 ```
 
-2. Fix the command name in tokenize.sh:
-   - Change `MEDS_transform-runner` to `MEDS_transform-pipeline` on line 42
-   - The correct command installed by MEDS-transforms is `MEDS_transform-pipeline`
+## Hydra joblib launcher (required for parallel runs)
 
+  If you use the joblib stage runner (`hydra/launcher=joblib`), install the
+  Hydra joblib launcher:
+```console
+pip install hydra-joblib-launcher
+```
 
 Run the following end to end script to generate eic tensors
 
