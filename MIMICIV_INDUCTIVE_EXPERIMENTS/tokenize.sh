@@ -49,5 +49,9 @@ MEDS_transform-pipeline "$PIPELINE_CONFIG_PATH" "$@"
 
 # Run custom tokenization step
 python -m meds_torch.utils.custom_tokenization \
-  --input_dir "$MEDS_DIR" \
-  --output_dir "$MODEL_DIR"
+    dataset.root_dir="$MEDS_DIR" \
+    output_dir="$MODEL_DIR/tokenization" \
+    stages=[tokenization] \
+    stage=tokenization \
+    stage_cfg.data_input_dir="$MODEL_DIR/data" \
+    stage_cfg.output_dir="$MODEL_DIR/tokenization"
