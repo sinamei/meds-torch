@@ -93,4 +93,5 @@ def main(cfg: DictConfig):
 
 
 # Register the stage with MEDS-transforms
-stage = Stage.register(main_fn=main)
+# This is a data stage (processes data shards, not metadata)
+stage = Stage.register(main_fn=main, is_metadata=False)
