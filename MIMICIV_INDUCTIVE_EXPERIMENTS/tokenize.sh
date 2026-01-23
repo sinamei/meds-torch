@@ -46,3 +46,8 @@ shift 4
 
 echo "Running extraction pipeline."
 MEDS_transform-pipeline "$PIPELINE_CONFIG_PATH" "$@"
+
+# Run custom tokenization step
+python -m meds_torch.utils.custom_tokenization \
+  --input_dir "$MEDS_DIR" \
+  --output_dir "$MODEL_DIR"
