@@ -6,11 +6,13 @@ from functools import partial
 import hydra
 import polars as pl
 from loguru import logger
-from MEDS_transforms import PREPROCESS_CONFIG_YAML
 from MEDS_transforms.mapreduce.mapper import map_over
 from MEDS_transforms.mapreduce.utils import shard_iterator
 from nested_ragged_tensors.ragged_numpy import JointNestedRaggedTensorDict
 from omegaconf import DictConfig
+from importlib.resources import files
+
+PREPROCESS_CONFIG_YAML = files("MEDS_transforms").joinpath("configs/_main.yaml")
 
 
 def convert_to_NRT(df: pl.LazyFrame) -> JointNestedRaggedTensorDict:

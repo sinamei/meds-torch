@@ -4,9 +4,11 @@
 
 import hydra
 import polars as pl
-from MEDS_transforms import PREPROCESS_CONFIG_YAML
 from MEDS_transforms.mapreduce.mapper import map_over
 from omegaconf import DictConfig
+from importlib.resources import files
+
+PREPROCESS_CONFIG_YAML = files("MEDS_transforms").joinpath("configs/_main.yaml")
 
 
 def normalize(

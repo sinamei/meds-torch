@@ -14,11 +14,12 @@ from pathlib import Path
 import hydra
 import polars as pl
 from loguru import logger
-from MEDS_transforms import PREPROCESS_CONFIG_YAML
 from MEDS_transforms.mapreduce.utils import rwlock_wrap, shard_iterator
 from MEDS_transforms.utils import hydra_loguru_init, write_lazyframe
 from omegaconf import DictConfig, OmegaConf
+from importlib.resources import files
 
+PREPROCESS_CONFIG_YAML = files("MEDS_transforms").joinpath("configs/_main.yaml")
 SECONDS_PER_MINUTE = 60.0
 SECONDS_PER_HOUR = SECONDS_PER_MINUTE * 60.0
 SECONDS_PER_DAY = SECONDS_PER_HOUR * 24.0

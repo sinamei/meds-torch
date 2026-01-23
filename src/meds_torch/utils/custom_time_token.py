@@ -5,9 +5,12 @@ from collections.abc import Callable
 import hydra
 import polars as pl
 from loguru import logger
-from MEDS_transforms import PREPROCESS_CONFIG_YAML
 from MEDS_transforms.mapreduce.mapper import map_over
 from omegaconf import DictConfig, OmegaConf
+from importlib.resources import files
+
+PREPROCESS_CONFIG_YAML = files("MEDS_transforms").joinpath("configs/_main.yaml")
+
 
 TIME_START_TOKEN = "TIME//START//TOKEN"
 TIME_DELTA_TOKEN = "TIME//DELTA//TOKEN"

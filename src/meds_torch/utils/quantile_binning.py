@@ -9,10 +9,11 @@ from pathlib import Path
 import hydra
 import polars as pl
 from loguru import logger
-from MEDS_transforms import PREPROCESS_CONFIG_YAML
+from importlib.resources import files
 from MEDS_transforms.mapreduce.mapper import map_over
 from omegaconf import DictConfig, OmegaConf
 
+PREPROCESS_CONFIG_YAML = files("MEDS_transforms").joinpath("configs/_main.yaml")
 
 def process_quantiles(df: pl.DataFrame) -> pl.DataFrame:
     """Process quantiles in a DataFrame, using custom quantiles if available.
