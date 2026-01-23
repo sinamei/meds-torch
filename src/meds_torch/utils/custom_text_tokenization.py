@@ -16,7 +16,7 @@ import polars as pl
 from loguru import logger
 from MEDS_transforms.mapreduce.rwlock import rwlock_wrap
 from MEDS_transforms.mapreduce.shard_iteration import shard_iterator
-from MEDS_transforms.utils import hydra_loguru_init, write_lazyframe
+from MEDS_transforms.utils import write_lazyframe
 from omegaconf import DictConfig, OmegaConf
 from safetensors.torch import save_file
 from transformers import AutoTokenizer
@@ -286,7 +286,6 @@ def extract_seq_of_subject_events(
     config_name=PREPROCESS_CONFIG_YAML.stem,
 )
 def main(cfg: DictConfig):
-    hydra_loguru_init()
     tokenize(cfg)
 
 

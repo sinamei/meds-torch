@@ -16,7 +16,7 @@ import polars as pl
 from loguru import logger
 from MEDS_transforms.mapreduce.rwlock import rwlock_wrap
 from MEDS_transforms.mapreduce.shard_iteration import shard_iterator
-from MEDS_transforms.utils import hydra_loguru_init, write_lazyframe
+from MEDS_transforms.utils import write_lazyframe
 from omegaconf import DictConfig, OmegaConf
 from importlib.resources import files
 
@@ -253,7 +253,6 @@ def extract_seq_of_subject_events(df: pl.LazyFrame) -> pl.LazyFrame:
 def main(cfg: DictConfig):
     """TODO."""
 
-    hydra_loguru_init()
 
     logger.info(
         f"Running with config:\n{OmegaConf.to_yaml(cfg)}\n"
