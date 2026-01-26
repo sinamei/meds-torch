@@ -5,3 +5,7 @@ parallelize:
 quantile_binning:
   parallelize:
     n_workers: 1
+
+quantile_binning_metadata:
+  parallelize:
+    n_workers: 1

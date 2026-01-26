@@ -62,13 +62,17 @@ def quantile_binning_metadata_main(cfg: DictConfig):
     custom_quantiles = cfg.stage_cfg.get("custom_quantiles", {})
 
     metadata_input_dir = Path(cfg.stage_cfg.metadata_input_dir)
+    output_dir = Path(cfg.stage_cfg.reducer_output_dir)
+
     code_metadata = pl.read_parquet(metadata_input_dir / "codes.parquet", use_pyarrow=True)
     quantile_code_metadata = convert_metadata_codes_to_discrete_quantiles(code_metadata, custom_quantiles)
 
-    output_fp = metadata_input_dir / "codes.parquet"
+    output_fp = output_dir / "codes.parquet"
     output_fp.parent.mkdir(parents=True, exist_ok=True)
     logger.info(f"Quantile metadata updated. Writing to {output_fp}")
     quantile_code_metadata.write_parquet(output_fp, use_pyarrow=True)
+
+    logger.info(f"Done with {cfg.stage}")
 
 
 # Register as a metadata stage
