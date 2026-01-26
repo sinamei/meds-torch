@@ -101,3 +101,7 @@ stages:
   # Tokenize into schemas and event sequences
   - tokenization:
       output_dir: ${output_dir}/tokenization
+  # Convert event sequences to nested ragged tensor format for PyTorch dataloader
+  - tensorization:
+      data_input_dir: ${output_dir}/tokenization
+      output_dir: ${output_dir}/tokenization/data
