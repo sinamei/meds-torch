@@ -61,6 +61,45 @@ pip install -e .[tests]
 pip install hydra-joblib-launcher
 ```
 
+Running Tokenisers 
+
+Triplet
+```console
+export MEDS_DIR=/cosybio_project/sina/Mimic/MEDS_cohort
+export MODEL_DIR=/cosybio_project/sina/Mimic/tokenised_data/triplet
+export N_WORKERS=8
+export PIPELINE_CONFIG_PATH=/cosybio_project/sina/MEDS/meds-torch/MIMICIV_INDUCTIVE_EXPERIMENTS/configs/triplet_config.yaml
+export JOBLIB_RUNNER_CONFIG_PATH=/cosybio_project/sina/MEDS/meds-torch/MIMICIV_INDUCTIVE_EXPERIMENTS/configs/joblib_runner.yaml
+
+bash /cosybio_project/sina/MEDS/meds-torch/MIMICIV_INDUCTIVE_EXPERIMENTS/tokenize.sh "$MEDS_DIR" "$MODEL_DIR" "$N_WORKERS" "$PIPELINE_CONFIG_PATH" --stage_runner_fp "$JOBLIB_RUNNER_CONFIG_PATH"
+```
+
+EIC
+```console
+export MEDS_DIR=/cosybio_project/sina/Mimic/MEDS_cohort
+export MODEL_DIR=/cosybio_project/sina/Mimic/tokenised_data/eic
+export N_WORKERS=8
+export PIPELINE_CONFIG_PATH=/cosybio_project/sina/MEDS/meds-torch/MIMICIV_INDUCTIVE_EXPERIMENTS/configs/eic_config.yaml
+export JOBLIB_RUNNER_CONFIG_PATH=/cosybio_project/sina/MEDS/meds-torch/MIMICIV_INDUCTIVE_EXPERIMENTS/configs/joblib_runner.yaml
+
+bash /cosybio_project/sina/MEDS/meds-torch/MIMICIV_INDUCTIVE_EXPERIMENTS/tokenize.sh "$MEDS_DIR" "$MODEL_DIR" "$N_WORKERS" "$PIPELINE_CONFIG_PATH" --stage_runner_fp "$JOBLIB_RUNNER_CONFIG_PATH"
+```
+
+Text Tokenisation
+```console
+export MEDS_DIR=/cosybio_project/sina/Mimic/MEDS_cohort
+export MODEL_DIR=/cosybio_project/sina/Mimic/tokenised_data/multimodal_triplet
+export N_WORKERS=8
+export PIPELINE_CONFIG_PATH=/cosybio_project/sina/MEDS/meds-torch/MIMICIV_INDUCTIVE_EXPERIMENTS/configs/multimodal_triplet_config.yaml
+export JOBLIB_RUNNER_CONFIG_PATH=/cosybio_project/sina/MEDS/meds-torch/MIMICIV_INDUCTIVE_EXPERIMENTS/configs/joblib_runner.yaml
+
+bash /cosybio_project/sina/MEDS/meds-torch/MIMICIV_INDUCTIVE_EXPERIMENTS/tokenize.sh "$MEDS_DIR" "$MODEL_DIR" "$N_WORKERS" "$PIPELINE_CONFIG_PATH" --stage_runner_fp "$JOBLIB_RUNNER_CONFIG_PATH"
+```
+
+
+
+
+
 Run the following end to end script to generate eic tensors
 
 ```console
